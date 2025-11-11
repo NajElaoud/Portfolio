@@ -58,6 +58,26 @@ if (skillsSection) {
     skillObserver.observe(skillsSection);
 }
 
+// Skill Box Toggle (Click to Expand/Collapse)
+const skillBoxes = document.querySelectorAll('.skill-box');
+skillBoxes.forEach(box => {
+    const header = box.querySelector('.skill-box-header');
+    if (header) {
+        header.addEventListener('click', (e) => {
+            e.stopPropagation();
+            // Toggle active class on the clicked box
+            box.classList.toggle('active');
+
+            // Optional: Close other boxes when one is opened
+            // skillBoxes.forEach(otherBox => {
+            //     if (otherBox !== box) {
+            //         otherBox.classList.remove('active');
+            //     }
+            // });
+        });
+    }
+});
+
 // Form Handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
@@ -107,7 +127,7 @@ if (contactForm) {
 }
 
 // Scroll Reveal Animation
-const revealElements = document.querySelectorAll('.about-box, .skill-category, .project-card, .timeline-item, .organization-card');
+const revealElements = document.querySelectorAll('.about-box, .skill-box, .project-item, .timeline-item, .organization-card');
 
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
@@ -234,11 +254,10 @@ if (scrollToTopBtn) {
     });
 }
 
-// Add hover effect to project cards and organization cards
-const projectCards = document.querySelectorAll('.project-card');
+// Add hover effect to organization cards
 const organizationCards = document.querySelectorAll('.organization-card');
 
-[...projectCards, ...organizationCards].forEach(card => {
+organizationCards.forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
     });
@@ -352,7 +371,7 @@ async function fetchGitHubStats() {
 }
 
 // Uncomment to fetch GitHub stats on page load
-fetchGitHubStats();
+// fetchGitHubStats();
 
 // Add keyboard shortcuts (only on desktop)
 if (window.innerWidth > 768) {
@@ -360,10 +379,6 @@ if (window.innerWidth > 768) {
         // Press 'h' to go to home
         if (e.key === 'h' || e.key === 'H') {
             document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
-        }
-        // Press 'a' to go to about
-        if (e.key === 'a' || e.key === 'A') {
-            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
         }
         // Press 'e' to go to experience
         if (e.key === 'e' || e.key === 'E') {
@@ -385,5 +400,8 @@ if (window.innerWidth > 768) {
     
     // Log keyboard shortcuts tip
     console.log('%c Keyboard Shortcuts: ', 'background: #0088ff; color: white; font-size: 14px; font-weight: bold; padding: 5px; font-family: monospace;');
-    console.log('$ h -> home | a -> about | e -> experience | p -> projects | o -> organizations | c -> contact');
+    console.log('$ h -> home | e -> experience | p -> projects | o -> organizations | c -> contact');
 }
+
+
+
