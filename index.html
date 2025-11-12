@@ -52,10 +52,19 @@
                     </div>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-code"></i> View Projects
+                            <span class="btn-icon"><i class="fas fa-code"></i></span>
+                            <span class="btn-text">View Projects</span>
+                            <span class="btn-shine"></span>
                         </a>
                         <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-envelope"></i> Get In Touch
+                            <span class="btn-icon"><i class="fas fa-envelope"></i></span>
+                            <span class="btn-text">Get In Touch</span>
+                            <span class="btn-shine"></span>
+                        </a>
+                        <a href="https://github.com/NajElaoud" target="_blank" class="btn btn-ghost">
+                            <span class="btn-icon"><i class="fab fa-github"></i></span>
+                            <span class="btn-text">GitHub</span>
+                            <span class="btn-shine"></span>
                         </a>
                     </div>
                     <div class="code-line">
@@ -125,68 +134,56 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="comment">$ </span><span class="function">cat</span> <span class="keyword">about.txt</span>
-            </h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="image-frame">
-                        <div class="terminal-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                        </div>
-                        <div class="terminal-content">
-                            <div class="code-snippet">
-                                <span class="comment">/* Embedded C Developer */</span><br>
-                                <span class="keyword">typedef struct</span> {<br>
-                                &nbsp;&nbsp;<span class="keyword">char</span> *name;<br>
-                                &nbsp;&nbsp;<span class="keyword">char</span> *role;<br>
-                                &nbsp;&nbsp;<span class="keyword">char</span> *passion;<br>
-                                } <span class="type">developer_t</span>;<br><br>
-                                <span class="type">developer_t</span> me = {<br>
-                                &nbsp;&nbsp;.name = <span class="string">"Najd Elaoud"</span>,<br>
-                                &nbsp;&nbsp;.role = <span class="string">"Embedded Systems"</span>,<br>
-                                &nbsp;&nbsp;.passion = <span class="string">"Building Things"</span><br>
-                                };
-                            </div>
-                        </div>
-                    </div>
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2 class="section-title">
+            <span class="comment">$ </span><span class="function">cat</span> <span class="keyword">about.txt</span>
+        </h2>
+        <div class="about-content">
+            <div class="linux-photo-frame">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">profile.jpg</span>
                 </div>
-                <div class="about-text">
-                    <div class="about-box">
-                        <h3><i class="fas fa-graduation-cap"></i> Education & Focus</h3>
-                        <p>Embedded Systems & Electronics Student passionate about exploring low-level programming, hardware interfacing, and building intelligent autonomous systems.</p>
+                <div class="photo-content">
+                    <img src="img/profile_photo.jpg" alt="Profile Photo" class="profile-photo">
+                </div>
+            </div>
+            <div class="about-code-block">
+                <div class="image-frame">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">about.c</span>
                     </div>
-                    <div class="about-box">
-                        <h3><i class="fas fa-robot"></i> Current Work</h3>
-                        <p>Exploring embedded systems, working on small-scale robotics projects, and diving deep into the world of microcontrollers and hardware design.</p>
-                    </div>
-                    <div class="about-box">
-                        <h3><i class="fas fa-rocket"></i> Interests</h3>
-                        <div class="interests-grid">
-                            <span class="interest-tag"><i class="fas fa-gamepad"></i> Gaming</span>
-                            <span class="interest-tag"><i class="fas fa-dumbbell"></i> Fitness</span>
-                            <span class="interest-tag"><i class="fas fa-book"></i> Manga</span>
-                            <span class="interest-tag"><i class="fas fa-code"></i> Tech</span>
-                            <span class="interest-tag"><i class="fas fa-bug"></i> Debugging</span>
+                    <div class="terminal-content">
+                        <div class="code-snippet">
+                            <span class="comment">// Final-year Embedded Systems Engineering student</span><br>
+                            <span class="comment">// Passionate about robotics, automotive applications,</span><br>
+                            <span class="comment">// and innovative embedded projects.</span><br>
+                            <span class="comment">// Seeking a six-month final-year internship</span><br>
+                            <span class="comment">// Starting February 2026</span><br><br>
+                            
+                            <span class="macro">#include</span> <span class="string">&lt;passion.h&gt;</span><br>
+                            <span class="macro">#include</span> <span class="string">&lt;innovation.h&gt;</span><br><br>
+                            
+                            <span class="type">int</span> <span class="function">main</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">printf</span>(<span class="string">"Hello, I'm Najd Elaoud\n"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">printf</span>(<span class="string">"Embedded Systems Engineering Student\n"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">printf</span>(<span class="string">"Interests: Robotics, Automotive, Embedded Projects\n"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="number">0</span>;<br>
+                            }
                         </div>
-                    </div>
-                    <div class="about-box">
-                        <h3><i class="fas fa-bullseye"></i> Ambitions</h3>
-                        <ul class="ambitions-list">
-                            <li><i class="fas fa-check-circle"></i> Master low-level programming</li>
-                            <li><i class="fas fa-check-circle"></i> Build autonomous robots</li>
-                            <li><i class="fas fa-check-circle"></i> Learn German 🇩🇪</li>
-                            <li><i class="fas fa-check-circle"></i> Optimize code every day ⚡</li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
@@ -726,7 +723,11 @@
                         </a>
                         <a href="mailto:najd.elaoud@example.com" class="social-link email">
                             <i class="fas fa-envelope"></i>
-                            <span>Email</span>
+                            <span>Email: najdelaoud4@gmail.com</span>
+                        </a>
+                        <a href="" class="social-link phone">
+                            <i class="fas fa-phone"></i>
+                            <span>+216 92 551 527</span>
                         </a>
                     </div>
                 </div>
@@ -752,9 +753,11 @@
                                     <label for="message">$ cat message.txt</label>
                                     <textarea id="message" name="message" rows="5" required></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-paper-plane"></i> ./send.sh
-                                </button>
+                                <a href="" class="btn btn-primary">
+                                    <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                                    <span class="btn-text">./send.sh</span>
+                                    <span class="btn-shine"></span>
+                                </a>
                             </form>
                         </div>
                     </div>
@@ -767,13 +770,44 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2025 Najd Elaoud. Built with <i class="fas fa-heart"></i> and <i class="fas fa-coffee"></i></p>
-                    <p class="footer-quote">while(1) { coffee++; bugs--; }</p>
+                <!-- Terminal Style Info -->
+                <div class="footer-terminal">
+                    <div class="footer-prompt">
+                        <span class="prompt-symbol">najd@portfolio:~$</span>
+                        <span class="prompt-command">./status.sh</span>
+                    </div>
+                    <div class="footer-output">
+                        <div class="status-line">
+                            <span class="status-dot"></span>
+                            <span>System Status: <span class="status-ok">ONLINE</span></span>
+                        </div>
+                        <div class="status-line">
+                            <span class="status-icon">⚡</span>
+                            <span>Last Updated: 2025</span>
+                        </div>
+                        <div class="status-line">
+                            <span class="status-icon">💻</span>
+                            <span>while(alive) { code(); coffee(); }</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="#home">Back to Top <i class="fas fa-arrow-up"></i></a>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div class="footer-badge">
+                    <i class="fas fa-code"></i>
+                    <span>Handcrafted with passion in Tunisia 🇹🇳</span>
                 </div>
+                <div class="footer-copyright">
+                    <p style="color: var(--text-secondary-1); margin-top: 0.5rem;">
+                        &copy; 2025 Najd Elaoud • Built with <i class="fas fa-heart" style="color: var(--accent-color);"></i> and <i class="fas fa-coffee" style="color: var(--primary-color);"></i>
+                    </p>                
+                </div>
+                <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <i class="fas fa-terminal"></i>
+                    <span>cd ~</span>
+                </button>
             </div>
         </div>
     </footer>
@@ -781,3 +815,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+<!-- Final-year Embedded Software Engineering student passionate about Artificial Intelligence (AI) and Internet of Things (IoT) technologies. Skilled in C, C++, and Python, with experience in STM32 MCUs, system peripherals, MQTT, and Linux Shell. Currently seeking a final-year internship -->

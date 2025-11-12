@@ -69,11 +69,11 @@ skillBoxes.forEach(box => {
             box.classList.toggle('active');
 
             // Optional: Close other boxes when one is opened
-            // skillBoxes.forEach(otherBox => {
-            //     if (otherBox !== box) {
-            //         otherBox.classList.remove('active');
-            //     }
-            // });
+             skillBoxes.forEach(otherBox => {
+                if (otherBox !== box) {
+                     otherBox.classList.remove('active');
+                 }
+             });
         });
     }
 });
@@ -245,6 +245,16 @@ createParticles();
 // Scroll to Top Button Functionality
 const scrollToTopBtn = document.querySelector('.footer-links a[href="#home"]');
 if (scrollToTopBtn) {
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('visible');
+        } else {
+            scrollToTopBtn.classList.remove('visible');
+        }
+    });
+    
+    // Scroll to top on click
     scrollToTopBtn.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({
@@ -371,7 +381,7 @@ async function fetchGitHubStats() {
 }
 
 // Uncomment to fetch GitHub stats on page load
-// fetchGitHubStats();
+fetchGitHubStats();
 
 // Add keyboard shortcuts (only on desktop)
 if (window.innerWidth > 768) {
@@ -379,6 +389,10 @@ if (window.innerWidth > 768) {
         // Press 'h' to go to home
         if (e.key === 'h' || e.key === 'H') {
             document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        }
+        // Press 'a' to go to about
+        if (e.key === 'a' || e.key === 'A') {
+            document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
         }
         // Press 'e' to go to experience
         if (e.key === 'e' || e.key === 'E') {
