@@ -59,6 +59,20 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+    height: auto;
+}
+
+/* Ensure adequate padding and spacing on all screen sizes */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
 }
 
 .nav-container {
@@ -130,7 +144,28 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: clamp(0rem, 1vw, 0.75rem);
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+/* Mobile: hide nav-menu by default, show when .active */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 64px;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 64px);
+        background: linear-gradient(180deg, #000 0%, #071018 100%);
+        transition: left 0.3s ease;
+        padding: 0;
+        z-index: 1500;
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
 }
 
 .nav-link {
@@ -138,11 +173,24 @@ body {
     text-decoration: none;
     transition: all 0.3s;
     position: relative;
-    padding: 0.4rem 0.6rem;
-    font-size: clamp(1.2rem, 1.1vw, 0.9rem);
+    padding: 0.5rem 0.8rem;
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
     font-family: 'Courier New', monospace;
     font-weight: 700;
     border-radius: 4px;
+    white-space: nowrap;
+}
+
+/* Mobile nav-link styling */
+@media (max-width: 768px) {
+    .nav-link {
+        padding: 1rem 1.5rem;
+        font-size: 1.05rem;
+        text-align: left;
+        white-space: normal;
+        border-bottom: 1px dashed rgba(0,255,136,0.03);
+        background: transparent;
+    }
 }
 
 /* Terminal prompt before text */
@@ -188,6 +236,122 @@ body {
     background: rgba(0, 0, 0, 0.3);
 }
 
+/* Animated SVG checkbox hamburger (from provided snippet) */
+.nav {
+    --color: #ffffff;
+    background: linear-gradient(180deg, #020203 0%, #071018 100%);
+    width: 100px;
+    height: 56px;
+    position: relative;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Show nav toggle only on mobile */
+@media (max-width: 768px) {
+    .nav {
+        display: flex;
+    }
+}
+.nav svg {
+    fill: none;
+    stroke: var(--color);
+    stroke-width: 7px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    width: 46px;
+    height: 26px;
+}
+.nav {
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,255,136,0.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6), inset 0 -6px 18px rgba(0,255,136,0.02);
+}
+.nav svg {
+    background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2));
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: transform 0.18s ease, filter 0.18s ease, stroke 0.18s ease, box-shadow 0.18s ease;
+}
+.nav input[type="checkbox"]:focus-visible + svg {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,255,136,0.08), 0 6px 18px rgba(0,255,136,0.06);
+}
+.nav input[type="checkbox"]:checked + svg {
+    stroke: var(--primary-color);
+    transform: scale(1.03);
+    filter: drop-shadow(0 6px 18px rgba(0,255,136,0.18));
+}
+.nav input[type="checkbox"]:checked + svg use {
+    stroke: var(--primary-color);
+}
+.nav svg use:nth-of-type(1) {
+    opacity: 1;
+    stroke-dashoffset: 221;
+    stroke-dasharray: 46 249;
+    transition: stroke-dashoffset .12s linear .2s, stroke-dasharray .12s linear .2s, opacity 0s linear .2s;
+}
+.nav svg use:nth-of-type(2) {
+    animation: stroke-animation-reverse 1.2s ease-out forwards;
+}
+.nav input[type="checkbox"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+}
+.nav input[type="checkbox"]:checked + svg use:nth-of-type(1) {
+    stroke-dashoffset: 175;
+    stroke-dasharray: 0 295;
+    opacity: 0;
+    transition: stroke-dashoffset .07s linear .07s, stroke-dasharray .07s linear .07s, opacity 0s linear .14s;
+}
+.nav input[type="checkbox"]:checked + svg use:nth-of-type(2) {
+    animation: stroke-animation 1.2s ease-out forwards;
+}
+
+@keyframes stroke-animation {
+    0% {
+        stroke-dashoffset: 295;
+        stroke-dasharray: 25 270;
+    }
+    50% {
+        stroke-dashoffset: 68;
+        stroke-dasharray: 59 236;
+    }
+    65% {
+        stroke-dashoffset: 59;
+        stroke-dasharray: 59 236;
+    }
+    100% {
+        stroke-dashoffset: 68;
+        stroke-dasharray: 59 236;
+    }
+}
+
+@keyframes stroke-animation-reverse {
+    0% {
+        stroke-dashoffset: 68;
+        stroke-dasharray: 59 236;
+    }
+    50% {
+        stroke-dashoffset: 290;
+        stroke-dasharray: 25 270;
+    }
+    65% {
+        stroke-dashoffset: 295;
+        stroke-dasharray: 25 270;
+    }
+    100% {
+        stroke-dashoffset: 290;
+        stroke-dasharray: 25 270;
+    }
+}
+
 .nav-link:hover::after,
 .nav-link.active::after {
     opacity: 1;
@@ -196,15 +360,47 @@ body {
 .hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    gap: 5px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 1001;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger:hover {
+    background: rgba(0, 255, 136, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+    transform: scale(1.05);
 }
 
 .hamburger span {
-    width: 25px;
-    height: 3px;
+    width: 24px;
+    height: 2.5px;
     background: var(--primary-color);
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: absolute;
+    border-radius: 2px;
+    box-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+}
+
+.hamburger span:nth-child(1) {
+    transform: translateY(-8px);
+}
+
+.hamburger span:nth-child(2) {
+    transform: translateY(0);
+}
+
+.hamburger span:nth-child(3) {
+    transform: translateY(8px);
 }
 
 /* Hero Section */
@@ -245,7 +441,7 @@ body {
 .code-line {
     font-family: 'Courier New', 'Consolas', monospace;
     margin: 0.5rem 0;
-    font-size: clamp(1rem, 1.5vw, 2rem);
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
 }
 
 .keyword {
@@ -353,7 +549,7 @@ body {
     height: 1.6em;
     background-color: var(--cursor-color);
     margin-left: 2px;
-    animation: blink s infinite;
+    animation: blink 1s infinite;
 }
 
 .location-line {
@@ -367,6 +563,130 @@ body {
     gap: 1rem;
     margin: 2.5rem 0;
     justify-content: center;
+}
+
+/* GitHub Stats Widget */
+.github-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.15);
+    border-radius: 12px;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease-out 0.3s both;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-right: 1px solid rgba(0, 255, 136, 0.1);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.stat-item:nth-child(1) { animation-delay: 0.4s; }
+.stat-item:nth-child(2) { animation-delay: 0.6s; }
+.stat-item:nth-child(3) { animation-delay: 0.8s; }
+
+/* Page Indicator (right-side dot navigation) */
+.page-indicator {
+    position: fixed;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 2000;
+    pointer-events: none; /* allow clicks to pass to underlying elements except dots */
+}
+
+.page-indicator .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 0 8px rgba(0,0,0,0.6) inset;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    pointer-events: auto; /* make dots clickable */
+}
+
+.page-indicator .dot.active {
+    background: var(--primary-color);
+    transform: scale(1.45);
+    box-shadow: 0 0 12px rgba(0,255,136,0.25);
+}
+
+/* Small labels on hover */
+.page-indicator .dot[data-label]:hover::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 26px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.75);
+    color: var(--text-primary);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .page-indicator { right: 10px; gap: 10px; }
+    .page-indicator .dot { width: 9px; height: 9px; }
+}
+
+@media (max-width: 480px) {
+    .page-indicator { display: none; }
+}
+
+.stat-item:last-child {
+    border-right: none;
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary-1);
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+    min-width: 40px;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .btn {
@@ -829,6 +1149,106 @@ section {
     object-fit: cover;
 }
 
+/* Matrix overlay canvas inside the photo */
+.photo-content {
+    position: relative;
+}
+
+.photo-content canvas.matrix {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.9;
+}
+
+/* Desktop: give the photo more space by partitioning the about section
+   into a wider image column and a narrower code column. Keeps mobile
+   stacking unchanged. */
+@media (min-width: 900px) {
+    .about-content {
+        display: grid;
+        grid-template-columns: 55% 45%; /* more space for the image */
+        gap: clamp(1rem, 2vw, 2rem);
+        align-items: start;
+    }
+
+    /* Let the linux-photo-frame expand to fill the left column */
+    .linux-photo-frame {
+        width: auto;
+        max-width: 100%;
+        align-self: start;
+    }
+
+    /* Ensure the photo area keeps a nice height and scales cleanly */
+    .photo-content {
+        min-height: 360px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-photo {
+        width: 100%;
+        height: 100%;
+        max-height: 540px;
+        object-fit: cover;
+    }
+
+    /* Tighten the code block column so it flows well next to the image */
+    .about-code-block {
+        display: flex;
+        align-items: flex-start;
+    }
+}
+
+/* Improved terminal / code block styling for about section */
+.terminal-content {
+    padding: clamp(1rem, 2vw, 1.5rem);
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.15));
+    border-radius: 10px;
+    border: 1px solid rgba(0,255,136,0.06);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+.code-snippet {
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+    font-size: clamp(0.9rem, 1.4vw, 1rem);
+    overflow-x: auto;
+    width: 100%;
+    color: rgba(200, 255, 210, 0.95);
+    background: transparent;
+    padding: 0.25rem 0.35rem;
+    border-radius: 6px;
+}
+
+.code-snippet .comment { color: rgba(160, 255, 180, 0.85); font-style: normal; }
+.code-snippet .macro { color: #8be9fd; }
+.code-snippet .string { color: var(--code-string); }
+.code-snippet .function { color: var(--code-function); }
+.code-snippet .type { color: #9ad1ff; }
+.code-snippet .keyword { color: #ff7b72; }
+.code-snippet .number { color: #79c0ff; }
+
+/* subtle hover to highlight code area */
+.image-frame .terminal-content:hover .code-snippet {
+    background: rgba(0,0,0,0.02);
+    box-shadow: inset 0 0 18px rgba(0,255,136,0.02);
+}
+
+/* Responsive: reduce matrix and effects on mobile */
+@media (max-width: 768px) {
+    .photo-content canvas.matrix { display: none; }
+    .terminal-content { padding: clamp(0.75rem, 2vw, 1rem); }
+}
+
 .about-code-block {
     flex: 1;
     min-width: 0;
@@ -946,7 +1366,7 @@ section {
 
     /* Make Development & Build Tools span full width */
     .skills-categories .skill-box:nth-child(4) {
-        grid-column: 1 / -1;
+        grid-column: 3 / 2;
     }
 }
 
@@ -1229,9 +1649,17 @@ section {
 .timeline-date {
     color: var(--text-secondary);
     font-size: clamp(0.85rem, 1.5vw, 0.95rem);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    /* Badge-like appearance */
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(0,255,136,0.04);
+    border: 1px solid rgba(0,255,136,0.06);
+    color: rgba(255,255,255,0.9);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    transition: transform 0.2s ease, background 0.2s, box-shadow 0.2s;
 }
 
 .company-name {
@@ -1242,20 +1670,81 @@ section {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    /* New styling: make company stand out while keeping theme */
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
+    border: 1px solid rgba(0,255,136,0.06);
+    padding: 0.35rem 0.7rem;
+    border-radius: 8px;
+    color: var(--primary-color);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .timeline-content p {
-    color: var(--text-secondary);
-    line-height: 1.6;
+    /* Improve paragraph visibility while keeping the site's green accent */
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.75;
     margin-bottom: 1rem;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.04));
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border-left: 4px solid rgba(0,255,136,0.12);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
+    transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s, border-left-color 0.28s, background 0.28s;
+}
+
+.timeline-content p:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(0, 255, 136, 0.08);
+    border-left-color: rgba(0,255,136,0.9);
+    background: linear-gradient(180deg, rgba(0,255,136,0.03), rgba(0,255,136,0.02));
 }
 
 .experience-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.75rem;
     margin-top: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.33) 0%, rgba(0, 255, 136, 0.08) 100%);
+    color: var(--primary-color);
+    border: 1.5px solid var(--primary-color);
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.tag:hover {
+    background: linear-gradient(135deg, var(--primary-color) 0%, rgba(0, 255, 136, 0.9) 100%);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 255, 136, 0.4);
+    border-color: rgba(0, 255, 136, 1);
+}
+
+.tag:hover::before {
+    left: 100%;
 }
 
 /* Projects Section */
@@ -1324,6 +1813,32 @@ section {
     color: var(--primary-color);
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     margin-bottom: 1rem;
+}
+
+/* Project header with title and date */
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project-header h3 {
+    color: var(--primary-color);
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    margin: 0;
+}
+
+.project-date {
+    color: var(--text-secondary-1);
+    font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 255, 136, 0.08);
+    padding: 0.25rem 0.7rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 255, 136, 0.15);
+    white-space: nowrap;
 }
 
 .project-content p {
@@ -1784,22 +2299,108 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: var(--bg-dark);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        padding: 2rem 0;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+/* Tablet: smooth transition between mobile and desktop (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-container {
+        padding: 0.75rem clamp(1rem, 4vw, 2rem);
     }
 
+    .logo {
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+    }
+
+    .nav-link {
+        padding: 0.45rem 0.65rem;
+        font-size: clamp(0.85rem, 1vw, 0.95rem);
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Terminal style for the mobile nav when active */
+    .nav-menu.terminal,
     .nav-menu.active {
         left: 0;
+        top: 64px;
+        height: calc(100vh - 64px);
+        padding: 1rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        background: linear-gradient(180deg, #000 0%, #071018 100%);
+        border-top: 4px solid rgba(0,255,136,0.12);
+        /* Rounded top corners to match the nav icon */
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        font-family: 'Courier New', monospace;
+        color: var(--text-secondary);
+        z-index: 1500;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        /* Small inset shadow for depth, creating a subtle connector effect */
+        box-shadow: inset 0 2px 8px rgba(0,255,136,0.08), 
+                    inset -1px 0 0 rgba(0,255,136,0.04),
+                    inset 1px 0 0 rgba(0,255,136,0.04);
+    }
+
+    /* Terminal header line */
+    .nav-menu.terminal::before,
+    .nav-menu.active::before {
+        content: 'najd@portfolio:~$';
+        display: block;
+        padding: 0.9rem 1.25rem;
+        color: var(--primary-color);
+        font-weight: 700;
+        border-bottom: 1px solid rgba(0,255,136,0.04);
+        background: linear-gradient(180deg, rgba(0,0,0,0.08), transparent);
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,0.2);
+    }
+
+    /* Make each nav link look like a terminal command line */
+    .nav-menu.active .nav-link,
+    .nav-menu.terminal .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        padding: 0.85rem 1.25rem;
+        border-bottom: 1px dashed rgba(0,255,136,0.03);
+        color: var(--text-secondary);
+        font-size: 1.05rem;
+        text-align: left;
+        width: 100%;
+        background: transparent;
+    }
+
+    /* Always show a prompt symbol at the start of each link (mobile/terminal) */
+    .nav-menu.active .nav-link::before,
+    .nav-menu.terminal .nav-link::before {
+        content: '$ ';
+        opacity: 1;
+        color: var(--primary-color);
+        margin-right: 0.5rem;
+        font-weight: 700;
+    }
+
+    .nav-menu.active .nav-link:hover,
+    .nav-menu.terminal .nav-link:hover {
+        background: rgba(0,255,136,0.02);
+        color: var(--primary-color);
+        text-shadow: none;
+    }
+
+    /* subtle close hint at bottom */
+    .nav-menu.active::after,
+    .nav-menu.terminal::after {
+        content: 'Press Esc or tap outside to close';
+        display: block;
+        padding: 0.8rem 1.25rem;
+        color: rgba(255,255,255,0.35);
+        font-size: 0.85rem;
+        text-align: center;
+        margin-top: auto;
+        border-top: 1px solid rgba(0,255,136,0.02);
     }
 
     .hamburger {
@@ -1900,6 +2501,78 @@ section {
     .container {
         max-width: 1600px;
     }
+}
+
+/* Additional mobile-first refinements for small smartphones */
+@media (max-width: 420px) {
+    html { font-size: 14px; }
+
+    .container { padding-left: 0.75rem; padding-right: 0.75rem; }
+
+    /* Navigation */
+    .nav-container {
+        padding: 0.5rem 0.5rem;
+    }
+
+    .logo {
+        font-size: clamp(0.85rem, 2vw, 0.95rem);
+    }
+
+    .nav-link { font-size: 1rem; padding: 0.9rem 1.2rem; }
+
+    .nav {
+        width: 90px;
+        height: 50px;
+    }
+
+    /* Hero */
+    .hero { padding: 4.5rem 0 2.5rem; }
+    .matrix-text { font-size: clamp(2rem, 8vw, 2.6rem); }
+
+    /* About */
+    .about-content { gap: 1rem; }
+    .linux-photo-frame { width: 160px; margin: 0 auto; }
+    .photo-content { align-items: center; justify-content: center; }
+    .profile-photo { width: 100%; height: auto; object-fit: cover; }
+
+    .terminal-content { flex-direction: column; padding: 0.75rem; }
+    .about-output { width: 100%; padding-right: 0; }
+    .program-output { padding: 0.8rem; font-size: 0.97rem; }
+
+    /* Timeline */
+    .timeline { padding: 1.25rem 0; }
+    .timeline-item { padding-left: 44px; margin-bottom: 1.5rem; }
+    .timeline-content { padding: 0.9rem 0.9rem; }
+    .timeline-header h3 { font-size: 1rem; }
+    .timeline-date { font-size: 0.82rem; padding: 0.2rem 0.45rem; }
+
+    /* Projects */
+    .project-content { padding: 1rem; }
+    .project-content p { font-size: 0.95rem; }
+
+    /* Skills */
+    .skill-grid { gap: 0.9rem; }
+    .skill-badge { min-height: 100px; padding: 0.8rem; }
+
+    /* Footer */
+    .footer { padding: 2rem 0 2rem; }
+
+    /* Ensure SVGs and images never overflow */
+    img, svg, canvas { max-width: 100%; height: auto; }
+}
+
+/* Extra tiny-phone adjustments */
+@media (max-width: 360px) {
+    html { font-size: 13px; }
+    .hero { padding-top: 4rem; }
+    .nav-container { padding: 0.4rem 0.4rem; }
+    .nav {
+        width: 80px;
+        height: 48px;
+    }
+    .nav-menu { top: 60px; }
+    .linux-photo-frame { width: 140px; }
+    .program-output { font-size: 0.95rem; padding: 0.65rem; }
 }
 
 /* Print styles */

@@ -26,13 +26,22 @@
                 <li><a href="#organizations" class="nav-link">Organizations</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+                <div class="nav">
+                    <input type="checkbox" id="nav-toggle" aria-controls="navMenu" aria-expanded="false" />
+                    <svg class="nav-icon" aria-hidden="true">
+                        <use xlink:href="#menu"></use>
+                        <use xlink:href="#menu"></use>
+                    </svg>
+                </div>
         </div>
     </nav>
+
+        <!-- SVG symbol for animated menu (hidden) -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 56" id="menu">
+                <path d="M48.33,45.6H18a14.17,14.17,0,0,1,0-28.34H78.86a17.37,17.37,0,0,1,0,34.74H42.33l-21-21.26L47.75,4"/>
+            </symbol>
+        </svg>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -44,28 +53,41 @@
                     </div>
                     <h1 class="matrix-text" data-text="Najd Elaoud">Najd Elaoud</h1>
                     <div class="typing-container">
-                        <span class="subtitle">Embedded Systems & Electronics Student</span>
+                        <span class="subtitle" id="rotatingSubtitle">Embedded Systems Engineer</span>
                         <span class="cursor"></span>
                     </div>
                     <div class="code-line location-line">
-                        <span class="comment">// Based in Tunisia 🇹🇳</span>
+                        <span class="comment">// Based in Tunisia &#x1f1f9;&#x1f1f3;</span>
                     </div>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            <span class="btn-icon"><i class="fas fa-code"></i></span>
-                            <span class="btn-text">View Projects</span>
-                            <span class="btn-shine"></span>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            <span class="btn-icon"><i class="fas fa-envelope"></i></span>
-                            <span class="btn-text">Get In Touch</span>
-                            <span class="btn-shine"></span>
-                        </a>
-                        <a href="https://github.com/NajElaoud" target="_blank" class="btn btn-ghost">
+                        <a href="https://github.com/NajElaoud" target="_blank" class="btn btn-primary">
                             <span class="btn-icon"><i class="fab fa-github"></i></span>
                             <span class="btn-text">GitHub</span>
                             <span class="btn-shine"></span>
                         </a>
+                        <a href="docs/CV_Najd_Elaoud_2025_EngV (12).pdf" class="btn btn-secondary">
+                            <span class="btn-icon"><i class="fas fa-file"></i></span>
+                            <span class="btn-text">My CV</span>
+                            <span class="btn-shine"></span>
+                        </a>
+                    </div>
+                    <!-- GitHub Stats Widget -->
+                    <div class="github-stats" id="githubStats">
+                        <div class="stat-item">
+                            <span class="stat-icon">📊</span>
+                            <span class="stat-label">Repositories</span>
+                            <span class="stat-value" id="repoCount">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⭐</span>
+                            <span class="stat-label">Total Stars</span>
+                            <span class="stat-value" id="starCount">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">🔗</span>
+                            <span class="stat-label">Followers</span>
+                            <span class="stat-value" id="followerCount">--</span>
+                        </div>
                     </div>
                     <div class="code-line">
                         <span class="bracket">}</span><span class="semicolon">;</span>
@@ -134,49 +156,54 @@
     </section>
 
     <!-- About Section -->
-<!-- About Section -->
-<section id="about" class="about">
-    <div class="container">
-        <h2 class="section-title">
-            <span class="comment">$ </span><span class="function">cat</span> <span class="keyword">about.txt</span>
-        </h2>
-        <div class="about-content">
-            <div class="linux-photo-frame">
-                <div class="terminal-header">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="terminal-title">profile.jpg</span>
-                </div>
-                <div class="photo-content">
-                    <img src="img/profile_photo.jpg" alt="Profile Photo" class="profile-photo">
-                </div>
-            </div>
-            <div class="about-code-block">
-                <div class="image-frame">
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="comment">$ </span><span class="function">cat</span> <span class="keyword">about.txt</span>
+            </h2>
+            <div class="about-content">
+                <div class="linux-photo-frame">
                     <div class="terminal-header">
                         <span class="dot red"></span>
                         <span class="dot yellow"></span>
                         <span class="dot green"></span>
-                        <span class="terminal-title">about.c</span>
+                        <span class="terminal-title">profile.jpg</span>
                     </div>
-                    <div class="terminal-content">
-                        <div class="code-snippet">
-                            <span class="comment">// Final-year Embedded Systems Engineering student</span><br>
-                            <span class="comment">// Passionate about robotics, automotive applications,</span><br>
-                            <span class="comment">// and innovative embedded projects.</span><br>
-                            <span class="comment">// Seeking a six-month final-year internship</span><br>
-                            <span class="comment">// Starting February 2026</span><br><br>
-                            
-                            <span class="macro">#include</span> <span class="string">&lt;passion.h&gt;</span><br>
-                            <span class="macro">#include</span> <span class="string">&lt;innovation.h&gt;</span><br><br>
-                            
-                            <span class="type">int</span> <span class="function">main</span>() {<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">printf</span>(<span class="string">"Hello, I'm Najd Elaoud\n"</span>);<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">printf</span>(<span class="string">"Embedded Systems Engineering Student\n"</span>);<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="function">printf</span>(<span class="string">"Interests: Robotics, Automotive, Embedded Projects\n"</span>);<br>
-                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="number">0</span>;<br>
-                            }
+                    <div class="photo-content">
+                        <!-- fixe image size -->
+                        <img src="img/profile_photo.jpg" alt="Profile Photo" class="profile-photo">
+                    </div>
+                </div>
+                <div class="about-code-block">
+                    <div class="image-frame">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="terminal-title">profile.c</span>
+                        </div>
+                        <div class="terminal-content">
+                            <div class="code-snippet">
+                                <span class="comment">// ╔══════════════════════════════════════════╗</span><br>
+                                <span class="comment">// ║         WHO AM I?                       ║</span><br>
+                                <span class="comment">// ╚══════════════════════════════════════════╝</span><br><br>
+                                
+                                <span class="type">Name:</span> <span class="string">Najd Elaoud</span><br>
+                                <span class="type">Role:</span> <span class="string">Final-year Embedded Systems Engineering Student</span><br>
+                                <span class="type">Location:</span> <span class="string">Tunisia 🇹🇳</span><br><br>
+
+                                <span class="comment">// ╔══════════════════════════════════════════╗</span><br>
+                                <span class="comment">// ║         STATUS                          ║</span><br>
+                                <span class="comment">// ╚══════════════════════════════════════════╝</span><br>
+                                <span class="type">Status:</span> <span class="string">Seeking 6-month internship</span><br>
+                                <span class="type">Available:</span> <span class="string">February 2026</span><br><br>
+
+                                <span class="comment">// ╔══════════════════════════════════════════╗</span><br>
+                                <span class="comment">// ║         CORE INTERESTS                  ║</span><br>
+                                <span class="comment">// ╚══════════════════════════════════════════╝</span><br>
+                                <span class="type">Domains:</span> <span class="string">Robotics | Automotive | IoT</span><br>
+                                <span class="type">Focus:</span> <span class="string">Low-level firmware & hardware integration</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -255,6 +282,33 @@
                             <div class="skill-badge">
                                 <i class="fas fa-car" style="color: #FFD93D;"></i>
                                 <span>CAN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operating Systems -->
+                <div class="skill-box">
+                    <div class="skill-box-header">
+                        <div class="skill-box-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h3>Operating Systems</h3>
+                        <i class="fas fa-chevron-down skill-box-chevron"></i>
+                    </div>
+                    <div class="skill-box-content">
+                        <div class="skill-grid">
+                            <div class="skill-badge">
+                                <i class="fa-brands fa-windows"></i>
+                                <span>Windows</span>
+                            </div>
+                            <div class="skill-badge">
+                                <i class="fa-brands fa-linux" style="color: #debe4a;"></i>
+                                <span>Linux</span>
+                            </div>
+                            <div class="skill-badge">
+                                <i class="fa-brands fa-ubuntu" style="color: #e4591d;"></i>
+                                <span>Ubuntu</span>
                             </div>
                         </div>
                     </div>
@@ -360,33 +414,6 @@
                     </div>
                 </div>
 
-                <!-- Operating Systems -->
-                <div class="skill-box">
-                    <div class="skill-box-header">
-                        <div class="skill-box-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <h3>Operating Systems</h3>
-                        <i class="fas fa-chevron-down skill-box-chevron"></i>
-                    </div>
-                    <div class="skill-box-content">
-                        <div class="skill-grid">
-                            <div class="skill-badge">
-                                <i class="fa-brands fa-windows"></i>
-                                <span>Windows</span>
-                            </div>
-                            <div class="skill-badge">
-                                <i class="fa-brands fa-linux" style="color: #debe4a;"></i>
-                                <span>Linux</span>
-                            </div>
-                            <div class="skill-badge">
-                                <i class="fa-brands fa-ubuntu" style="color: #e4591d;"></i>
-                                <span>Ubuntu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Version Control System -->
                 <div class="skill-box">
                     <div class="skill-box-header">
@@ -425,16 +452,27 @@
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Embedded Systems Intern</h3>
-                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Summer 2024</span>
+                            <h3>Embedded Systems Engineering Intern</h3>
+                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> July-Aug 2025</span>
                         </div>
-                        <h4 class="company-name"><i class="fas fa-building"></i> Tech Company</h4>
-                        <p>Developed firmware for IoT devices using STM32 microcontrollers. Implemented I2C and SPI communication protocols for sensor integration.</p>
+                        <h4 class="company-name"><i class="fas fa-building"></i> Novel-Ti</h4>
+                        <p> _&gt; Developed a low-level motion control system for a mobile robot using STM32G0.<br>
+                            _&gt; Analyzed existing schematics and contributed to control board design.<br>
+                            _&gt; Engineered PWM-based motor control using H-Bridge drivers.<br>
+                            _&gt; Implemented UART/USB communication between STM32 and ESP32.</p>
                         <div class="experience-tags">
-                            <span class="tag">Embedded C</span>
-                            <span class="tag">STM32</span>
-                            <span class="tag">I2C/SPI</span>
-                            <span class="tag">Firmware</span>
+                            <span class="tag">C Language</span>
+                            <span class="tag">STM32G070CBT</span>
+                            <span class="tag">ESP32</span>
+                            <span class="tag">USART</span>
+                            <span class="tag">I2C</span>
+                            <span class="tag">TIMERs</span> 
+                            <span class="tag">ADC</span>
+                            <span class="tag">DMA</span>
+                            <span class="tag">PWM</span>
+                            <span class="tag">Altium Designer</span>
+                            <span class="tag">STM32CubeIDE</span>
+                            <span class="tag">PlatformIO</span>
                         </div>
                     </div>
                 </div>
@@ -443,10 +481,10 @@
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Robotics Team Member</h3>
-                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> 2023 - Present</span>
+                            <h3>Embedded Systems Engineering Intern</h3>
+                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> Jan-May 2023</span>
                         </div>
-                        <h4 class="company-name"><i class="fas fa-robot"></i> University Robotics Lab</h4>
+                        <h4 class="company-name"><i class="fas fa-robot"></i> RoboCare</h4>
                         <p>Contributing to autonomous robot development. Working on motor control systems and sensor fusion algorithms for navigation.</p>
                         <div class="experience-tags">
                             <span class="tag">Robotics</span>
@@ -461,10 +499,10 @@
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
                         <div class="timeline-header">
-                            <h3>Electronics Workshop Assistant</h3>
-                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> 2022 - 2023</span>
+                            <h3>Embedded Systems Engineering Intern</h3>
+                            <span class="timeline-date"><i class="fas fa-calendar-alt"></i> August 2022</span>
                         </div>
-                        <h4 class="company-name"><i class="fas fa-university"></i> Electronics Department</h4>
+                        <h4 class="company-name"><i class="fas fa-university"></i> Novel-Ti</h4>
                         <p>Assisted students with circuit design and PCB development. Conducted workshops on microcontroller programming and debugging techniques.</p>
                         <div class="experience-tags">
                             <span class="tag">Teaching</span>
@@ -496,7 +534,10 @@
                                 </a>
                             </div>
                         </div>
-                        <h3>Smart Home Controller</h3>
+                        <div class="project-header">
+                            <h3>Smart Home Controller</h3>
+                            <span class="project-date">2024</span>
+                        </div>
                         <p>IoT-based home automation system using ESP32. Features include remote control via MQTT protocol, real-time temperature and humidity monitoring, automated lighting control, and energy consumption tracking. The system provides a responsive web interface for device management and supports voice commands through integration with smart assistants.</p>
                         <div class="project-keywords">
                             <span class="keyword-tag">ESP32</span>
@@ -520,7 +561,10 @@
                                 </a>
                             </div>
                         </div>
-                        <h3>Line Following Robot</h3>
+                        <div class="project-header">
+                            <h3>Line Following Robot</h3>
+                            <span class="project-date">2023-2024</span>
+                        </div>
                         <p>Autonomous robot designed for line following competitions using infrared sensors and advanced PID control algorithms. Implemented custom motor control drivers with PWM for precise speed regulation and real-time path correction. The robot features obstacle detection, speed optimization on curves, and can maintain stable operation at high speeds.</p>
                         <div class="project-keywords">
                             <span class="keyword-tag">Robotics</span>
@@ -544,7 +588,10 @@
                                 </a>
                             </div>
                         </div>
-                        <h3>UART Bootloader</h3>
+                        <div class="project-header">
+                            <h3>UART Bootloader</h3>
+                            <span class="project-date">2024</span>
+                        </div>
                         <p>Custom bootloader implementation for STM32 microcontrollers enabling secure firmware updates over UART interface. Features include CRC32 verification for data integrity, flash memory sector management with wear leveling, rollback capability for failed updates, and support for encrypted firmware images. Compatible with multiple STM32 families.</p>
                         <div class="project-keywords">
                             <span class="keyword-tag">STM32</span>
@@ -568,7 +615,10 @@
                                 </a>
                             </div>
                         </div>
-                        <h3>Real-Time Data Logger</h3>
+                        <div class="project-header">
+                            <h3>Real-Time Data Logger</h3>
+                            <span class="project-date">2024</span>
+                        </div>
                         <p>Multi-channel data acquisition system with high-speed ADC sampling and SD card storage. Supports up to 8 analog channels with configurable sampling rates, RTC-based timestamp management, circular buffer implementation for continuous logging, and multiple low-power modes for battery operation. Includes data visualization tools and export to CSV format.</p>
                         <div class="project-keywords">
                             <span class="keyword-tag">Data Logging</span>
@@ -592,7 +642,10 @@
                                 </a>
                             </div>
                         </div>
-                        <h3>CAN Bus Monitor</h3>
+                        <div class="project-header">
+                            <h3>CAN Bus Monitor</h3>
+                            <span class="project-date">2024</span>
+                        </div>
                         <p>Diagnostic tool for automotive CAN bus networks providing real-time message decoding and network traffic analysis. Features intelligent filtering based on CAN ID ranges, DBC file support for message interpretation, graphical visualization of signal data, logging capabilities, and error detection. Supports both standard and extended CAN frames.</p>
                         <div class="project-keywords">
                             <span class="keyword-tag">CAN Bus</span>
@@ -616,7 +669,10 @@
                                 </a>
                             </div>
                         </div>
-                        <h3>Wireless Sensor Network</h3>
+                        <div class="project-header">
+                            <h3>Wireless Sensor Network</h3>
+                            <span class="project-date">2023</span>
+                        </div>
                         <p>Mesh network implementation for distributed sensor nodes using nRF24L01+ modules. Features automatic routing, node discovery, power-efficient sleep modes, and collision avoidance. The network supports up to 50 nodes with automatic parent selection and self-healing capabilities when nodes fail or move.</p>
                         <div class="project-keywords">
                             <span class="keyword-tag">Wireless</span>
@@ -717,7 +773,7 @@
                             <i class="fab fa-github"></i>
                             <span>GitHub</span>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" class="social-link linkedin">
+                        <a href="https://www.linkedin.com/in/najd-elaoud-504468204" target="_blank" class="social-link linkedin">
                             <i class="fab fa-linkedin"></i>
                             <span>LinkedIn</span>
                         </a>
@@ -753,11 +809,11 @@
                                     <label for="message">$ cat message.txt</label>
                                     <textarea id="message" name="message" rows="5" required></textarea>
                                 </div>
-                                <a href="" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary">
                                     <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
                                     <span class="btn-text">./send.sh</span>
                                     <span class="btn-shine"></span>
-                                </a>
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -812,8 +868,9 @@
         </div>
     </footer>
 
+    <!-- Page indicator (built dynamically by script) -->
+    <div id="pageIndicator" class="page-indicator" aria-hidden="false"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
-
-<!-- Final-year Embedded Software Engineering student passionate about Artificial Intelligence (AI) and Internet of Things (IoT) technologies. Skilled in C, C++, and Python, with experience in STM32 MCUs, system peripherals, MQTT, and Linux Shell. Currently seeking a final-year internship -->
