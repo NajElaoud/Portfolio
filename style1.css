@@ -242,117 +242,31 @@ body {
     width: 100%;
 }
 
-/* Code Block Container */
-.code-block {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-    border: 2px solid rgba(0, 255, 136, 0.2);
-    border-radius: 8px;
-    padding: clamp(1.5rem, 3vw, 2.5rem);
-    margin: 2rem 0;
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.4),
-        inset 0 0 20px rgba(0, 255, 136, 0.05);
-    position: relative;
-    overflow: hidden;
-}
-
-.code-block::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 35px;
-    background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 0, 0, 0.3));
-    border-bottom: 1px solid rgba(0, 255, 136, 0.2);
-}
-
-.code-block::after {
-    content: '● ● ●';
-    position: absolute;
-    top: 10px;
-    left: 15px;
-    font-size: 12px;
-    color: rgba(0, 255, 136, 0.4);
-    letter-spacing: 5px;
-}
-
 .code-line {
-    font-family: 'Courier New', 'Consolas', monospace;
-    margin: 0.4rem 0;
-    font-size: clamp(0.85rem, 1.8vw, 1.1rem);
-    line-height: 1.6;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s;
+    font-family: 'Courier New', monospace;
+    margin: 0.5rem 0;
+    font-size: clamp(1rem, 1.5vw, 2rem);
 }
 
-.code-line:hover {
-    background: rgba(0, 255, 136, 0.05);
-    padding-left: 0.5rem;
-    margin-left: -0.5rem;
-    border-left: 2px solid var(--primary-color);
-}
-
-.line-number {
-    color: rgba(0, 255, 136, 0.4);
-    margin-right: 1.5rem;
-    user-select: none;
-    min-width: 2ch;
-    text-align: right;
-    font-size: 0.9em;
-}
-
-.indent-1 {
-    padding-left: 2rem;
-}
-
-.code-spacer {
-    opacity: 0.3;
-}
-
-/* Syntax Highlighting */
 .keyword {
-    color: #ff79c6;
-    font-weight: 600;
-}
-
-.type {
-    color: #8be9fd;
-    font-weight: 500;
-}
-
-.variable {
-    color: #f8f8f2;
-}
-
-.operator {
-    color: #ff79c6;
-}
-
-.number {
-    color: #bd93f9;
-}
-
-.string {
-    color: #f1fa8c;
-}
-
-.bracket {
-    color: #50fa7b;
-}
-
-.semicolon {
-    color: #50fa7b;
-}
-
-.comment {
-    color: #6272a4;
-    font-style: italic;
+    color: var(--code-keyword);
 }
 
 .class-name {
     color: var(--code-function);
+}
+
+.bracket {
+    color: var(--text-secondary);
+}
+
+.semicolon {
+    color: var(--text-secondary);
+}
+
+.comment {
+    color: var(--code-comment);
+    font-style: italic;
 }
 
 .glitch {
@@ -449,44 +363,169 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 2.5rem 0;
+    justify-content: center;
 }
 
 .btn {
-    padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.5rem);
-    border-radius: 8px;
+    position: relative;
+    padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3.5vw, 2rem);
+    border-radius: 12px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    transition: all 0.3s;
+    gap: 0.75rem;
+    font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     border: 2px solid transparent;
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
     white-space: nowrap;
+    overflow: hidden;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover .btn-shine {
+    left: 100%;
 }
 
 .btn-primary {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, #00cc6e 100%);
     color: var(--bg-dark);
+    box-shadow: 
+        0 4px 15px rgba(0, 255, 136, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #00cc6e 0%, var(--primary-color) 100%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    border-radius: 10px;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 8px 30px rgba(0, 255, 136, 0.5),
+        0 0 0 1px rgba(0, 255, 136, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-primary:hover .btn-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.btn-primary:active {
+    transform: translateY(-2px) scale(1);
 }
 
 .btn-secondary {
-    background: transparent;
+    background: rgba(0, 0, 0, 0.4);
     color: var(--primary-color);
-    border-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 15px rgba(0, 255, 136, 0.15),
+        inset 0 0 20px rgba(0, 255, 136, 0.05);
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.4s;
+    border-radius: 10px;
 }
 
 .btn-secondary:hover {
-    background: var(--primary-color);
     color: var(--bg-dark);
-    transform: translateY(-2px);
+    border-color: var(--primary-color);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 8px 30px rgba(0, 255, 136, 0.4),
+        0 0 0 1px var(--primary-color),
+        inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.btn-secondary:hover::before {
+    opacity: 1;
+}
+
+.btn-secondary:hover .btn-icon {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+.btn-secondary:active {
+    transform: translateY(-2px) scale(1);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary-1);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.btn-ghost:hover {
+    color: var(--text-primary);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 8px 30px rgba(255, 255, 255, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.btn-ghost:hover .btn-icon {
+    transform: scale(1.2);
+}
+
+.btn-ghost:active {
+    transform: translateY(-2px) scale(1);
 }
 
 /* Circuit Board Animation */
