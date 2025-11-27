@@ -521,170 +521,41 @@
             <h2 class="section-title">
                 <span class="comment">$ </span><span class="function">find</span> <span class="keyword">./projects</span> <span class="type">-type f</span>
             </h2>
-            <div class="projects-list">
-                <div class="project-item">
-                    <div class="project-content">
-                        <div class="project-icon-header">
-                            <div class="project-icon">
-                                <i class="fas fa-microchip"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/NajElaoud" target="_blank" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-header">
-                            <h3>Smart Home Controller</h3>
-                            <span class="project-date">2024</span>
-                        </div>
-                        <p>IoT-based home automation system using ESP32. Features include remote control via MQTT protocol, real-time temperature and humidity monitoring, automated lighting control, and energy consumption tracking. The system provides a responsive web interface for device management and supports voice commands through integration with smart assistants.</p>
-                        <div class="project-keywords">
-                            <span class="keyword-tag">ESP32</span>
-                            <span class="keyword-tag">MQTT</span>
-                            <span class="keyword-tag">IoT</span>
-                            <span class="keyword-tag">Wi-Fi</span>
-                            <span class="keyword-tag">Sensors</span>
-                        </div>
+            
+            <!-- Work in Progress Message -->
+            <div class="work-in-progress">
+                <div class="wip-terminal">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">projects.sh</span>
                     </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-content">
-                        <div class="project-icon-header">
-                            <div class="project-icon">
-                                <i class="fas fa-robot"></i>
+                    <div class="wip-content">
+                        <div class="wip-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="wip-text">
+                            <div class="code-line">
+                                <span class="comment">/* ********************** */</span><br>
+                                <span class="comment">/* ** WORK IN PROGRESS ** */</span><br>
+                                <span class="comment">/* ********************** */</span>
                             </div>
-                            <div class="project-links">
-                                <a href="https://github.com/NajElaoud" target="_blank" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
+                            <p class="wip-message">
+                                <span class="prompt">najd@portfolio:~/projects$</span> <span class="typing-effect">git commit -m "Adding projects documentation..."</span>
+                            </p>
+                            <p class="wip-status">
+                                <i class="fas fa-spinner fa-pulse"></i> Currently building and documenting my projects
+                            </p>
+                            <div class="wip-note">
+                                <span class="keyword">Note:</span> <span class="string">Check back soon for detailed project showcases!</span>
                             </div>
-                        </div>
-                        <div class="project-header">
-                            <h3>Line Following Robot</h3>
-                            <span class="project-date">2023-2024</span>
-                        </div>
-                        <p>Autonomous robot designed for line following competitions using infrared sensors and advanced PID control algorithms. Implemented custom motor control drivers with PWM for precise speed regulation and real-time path correction. The robot features obstacle detection, speed optimization on curves, and can maintain stable operation at high speeds.</p>
-                        <div class="project-keywords">
-                            <span class="keyword-tag">Robotics</span>
-                            <span class="keyword-tag">PID Control</span>
-                            <span class="keyword-tag">Embedded C</span>
-                            <span class="keyword-tag">PWM</span>
-                            <span class="keyword-tag">IR Sensors</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-content">
-                        <div class="project-icon-header">
-                            <div class="project-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/NajElaoud" target="_blank" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-header">
-                            <h3>UART Bootloader</h3>
-                            <span class="project-date">2024</span>
-                        </div>
-                        <p>Custom bootloader implementation for STM32 microcontrollers enabling secure firmware updates over UART interface. Features include CRC32 verification for data integrity, flash memory sector management with wear leveling, rollback capability for failed updates, and support for encrypted firmware images. Compatible with multiple STM32 families.</p>
-                        <div class="project-keywords">
-                            <span class="keyword-tag">STM32</span>
-                            <span class="keyword-tag">Bootloader</span>
-                            <span class="keyword-tag">UART</span>
-                            <span class="keyword-tag">Flash Memory</span>
-                            <span class="keyword-tag">CRC</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-content">
-                        <div class="project-icon-header">
-                            <div class="project-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/NajElaoud" target="_blank" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-header">
-                            <h3>Real-Time Data Logger</h3>
-                            <span class="project-date">2024</span>
-                        </div>
-                        <p>Multi-channel data acquisition system with high-speed ADC sampling and SD card storage. Supports up to 8 analog channels with configurable sampling rates, RTC-based timestamp management, circular buffer implementation for continuous logging, and multiple low-power modes for battery operation. Includes data visualization tools and export to CSV format.</p>
-                        <div class="project-keywords">
-                            <span class="keyword-tag">Data Logging</span>
-                            <span class="keyword-tag">ADC</span>
-                            <span class="keyword-tag">SD Card</span>
-                            <span class="keyword-tag">SPI</span>
-                            <span class="keyword-tag">Low Power</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-content">
-                        <div class="project-icon-header">
-                            <div class="project-icon">
-                                <i class="fas fa-network-wired"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/NajElaoud" target="_blank" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-header">
-                            <h3>CAN Bus Monitor</h3>
-                            <span class="project-date">2024</span>
-                        </div>
-                        <p>Diagnostic tool for automotive CAN bus networks providing real-time message decoding and network traffic analysis. Features intelligent filtering based on CAN ID ranges, DBC file support for message interpretation, graphical visualization of signal data, logging capabilities, and error detection. Supports both standard and extended CAN frames.</p>
-                        <div class="project-keywords">
-                            <span class="keyword-tag">CAN Bus</span>
-                            <span class="keyword-tag">Automotive</span>
-                            <span class="keyword-tag">Python</span>
-                            <span class="keyword-tag">DBC</span>
-                            <span class="keyword-tag">Diagnostics</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-content">
-                        <div class="project-icon-header">
-                            <div class="project-icon">
-                                <i class="fas fa-wifi"></i>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/NajElaoud" target="_blank" title="View on GitHub">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="project-header">
-                            <h3>Wireless Sensor Network</h3>
-                            <span class="project-date">2023</span>
-                        </div>
-                        <p>Mesh network implementation for distributed sensor nodes using nRF24L01+ modules. Features automatic routing, node discovery, power-efficient sleep modes, and collision avoidance. The network supports up to 50 nodes with automatic parent selection and self-healing capabilities when nodes fail or move.</p>
-                        <div class="project-keywords">
-                            <span class="keyword-tag">Wireless</span>
-                            <span class="keyword-tag">Mesh Network</span>
-                            <span class="keyword-tag">nRF24L01</span>
-                            <span class="keyword-tag">Low Power</span>
-                            <span class="keyword-tag">Routing</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            
+            <div class="projects-list" style="display: none;">
     </section>
 
     <!-- Organizations Section -->
@@ -693,62 +564,42 @@
             <h2 class="section-title">
                 <span class="comment">$ </span><span class="function">grep</span> <span class="keyword">-r</span> <span class="type">"organizations"</span>
             </h2>
-            <div class="organizations-grid">
-                <div class="organization-card">
-                    <div class="org-icon">
-                        <i class="fas fa-users"></i>
+            
+            <!-- Work in Progress Message -->
+            <div class="work-in-progress">
+                <div class="wip-terminal">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">organizations.sh</span>
                     </div>
-                    <h3>IEEE Student Branch</h3>
-                    <p class="org-role">Active Member | 2023 - Present</p>
-                    <p>Participating in technical workshops, hackathons, and collaborative projects focused on embedded systems and robotics.</p>
-                    <div class="org-activities">
-                        <span class="activity-tag"><i class="fas fa-check"></i> Workshops</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Hackathons</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Tech Talks</span>
-                    </div>
-                </div>
-
-                <div class="organization-card">
-                    <div class="org-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Robotics Club</h3>
-                    <p class="org-role">Technical Team Lead | 2022 - Present</p>
-                    <p>Leading the embedded systems team in developing autonomous robots for national competitions. Mentoring junior members in microcontroller programming.</p>
-                    <div class="org-activities">
-                        <span class="activity-tag"><i class="fas fa-check"></i> Team Leadership</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Competitions</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Mentoring</span>
-                    </div>
-                </div>
-
-                <div class="organization-card">
-                    <div class="org-icon">
-                        <i class="fab fa-linux"></i>
-                    </div>
-                    <h3>Open Source Community</h3>
-                    <p class="org-role">Contributor | 2023 - Present</p>
-                    <p>Contributing to open-source embedded systems projects on GitHub. Focus on device drivers, RTOS implementations, and hardware abstraction layers.</p>
-                    <div class="org-activities">
-                        <span class="activity-tag"><i class="fas fa-check"></i> Code Reviews</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Bug Fixes</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Documentation</span>
+                    <div class="wip-content">
+                        <div class="wip-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="wip-text">
+                            <div class="code-line">
+                                <span class="comment">/* ********************** */</span><br>
+                                <span class="comment">/* ** WORK IN PROGRESS ** */</span><br>
+                                <span class="comment">/* ********************** */</span>
+                            </div>
+                            <p class="wip-message">
+                                <span class="prompt">najd@portfolio:~/organizations$</span> <span class="typing-effect">git commit -m "Updating organizations information..."</span>
+                            </p>
+                            <p class="wip-status">
+                                <i class="fas fa-spinner fa-pulse"></i> Currently documenting my organizational involvement
+                            </p>
+                            <div class="wip-note">
+                                <span class="keyword">Note:</span> <span class="string">Check back soon for detailed information about my community involvement!</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="organization-card">
-                    <div class="org-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>Maker Space</h3>
-                    <p class="org-role">Regular Attendee | 2022 - Present</p>
-                    <p>Engaging with the maker community, sharing knowledge on electronics and embedded systems. Building prototypes and experimenting with new technologies.</p>
-                    <div class="org-activities">
-                        <span class="activity-tag"><i class="fas fa-check"></i> Prototyping</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Knowledge Sharing</span>
-                        <span class="activity-tag"><i class="fas fa-check"></i> Collaboration</span>
-                    </div>
-                </div>
+            </div>
+            
+            <div class="organizations-grid" style="display: none;">
+                <!-- Your existing organizations content will go here when ready -->
             </div>
         </div>
     </section>

@@ -2593,3 +2593,138 @@ section {
         page-break-inside: avoid;
     }
 }
+
+/* Work in Progress Component */
+.work-in-progress {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.wip-terminal {
+    background: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+    transition: all 0.3s;
+}
+
+.wip-terminal:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(0, 255, 136, 0.2);
+    transform: translateY(-5px);
+}
+
+.wip-content {
+    padding: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.wip-icon {
+    width: clamp(80px, 12vw, 100px);
+    height: clamp(80px, 12vw, 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 255, 136, 0.05));
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(0, 255, 136, 0.5);
+        transform: scale(1.05);
+    }
+}
+
+.wip-icon i {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 10px var(--primary-color));
+}
+
+.wip-text {
+    width: 100%;
+    max-width: 600px;
+}
+
+.wip-message {
+    font-family: 'Courier New', monospace;
+    color: var(--text-primary);
+    margin: 1rem 0;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.wip-message .prompt {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.wip-message .typing-effect {
+    color: var(--text-secondary-1);
+    display: inline-block;
+    animation: typing 2s steps(40, end), blink-cursor 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-cursor {
+    from, to { border-right-color: transparent; }
+    50% { border-right-color: var(--primary-color); }
+}
+
+.wip-status {
+    color: var(--text-secondary-1);
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.wip-status i {
+    color: var(--primary-color);
+}
+
+.wip-note {
+    font-family: 'Courier New', monospace;
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.15);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    text-align: left;
+    font-size: clamp(0.9rem, 1.4vw, 1rem);
+}
+
+.wip-note .keyword {
+    color: var(--code-keyword);
+    font-weight: 700;
+}
+
+.wip-note .string {
+    color: var(--code-string);
+}
+
+/* Projects Section */
